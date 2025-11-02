@@ -5,6 +5,281 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".Settings">
+
+    <TextView
+        android:id="@+id/cellColorsTextHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Cell Colors:"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/percentTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/percentTextView"
+        app:layout_constraintTop_toBottomOf="@id/percentTextView"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <TextView
+        android:id="@+id/revealedCellTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Revealed Mine"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/percentTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/percentTextView"
+        app:layout_constraintTop_toBottomOf="@id/suspectedCellTextView"
+        app:layout_constraintVertical_bias=".24" />
+
+    <Spinner
+        android:id="@+id/revealedCellSpinner"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:entries="@array/cellColors"
+        app:layout_constraintBottom_toBottomOf="@id/revealedCellTextView"
+        app:layout_constraintEnd_toEndOf="@+id/suspectedCellSpinner"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="@+id/suspectedCellSpinner"
+        app:layout_constraintTop_toTopOf="@id/revealedCellTextView" />
+
+    <TextView
+        android:id="@+id/suspectedCellTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Suspected"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/percentTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/percentTextView"
+        app:layout_constraintTop_toBottomOf="@id/uncoveredCellTextView"
+        app:layout_constraintVertical_bias=".16" />
+
+    <Spinner
+        android:id="@+id/suspectedCellSpinner"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:entries="@array/cellColors"
+        app:layout_constraintBottom_toBottomOf="@id/suspectedCellTextView"
+        app:layout_constraintEnd_toEndOf="@+id/uncoveredCellSpinner"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="@+id/uncoveredCellSpinner"
+        app:layout_constraintTop_toTopOf="@id/suspectedCellTextView" />
+
+    <TextView
+        android:id="@+id/uncoveredCellTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Uncovered"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/percentTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/percentTextView"
+        app:layout_constraintTop_toBottomOf="@id/coveredCellTextView"
+        app:layout_constraintVertical_bias=".12" />
+
+    <Spinner
+        android:id="@+id/uncoveredCellSpinner"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:entries="@array/cellColors"
+        app:layout_constraintBottom_toBottomOf="@id/uncoveredCellTextView"
+        app:layout_constraintEnd_toEndOf="@+id/coveredCellSpinner"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toStartOf="@+id/coveredCellSpinner"
+        app:layout_constraintTop_toTopOf="@id/uncoveredCellTextView" />
+
+    <TextView
+        android:id="@+id/coveredCellTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Covered"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/percentTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/percentTextView"
+        app:layout_constraintTop_toBottomOf="@+id/cellColorsTextHeader"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <Spinner
+        android:id="@+id/coveredCellSpinner"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:entries="@array/cellColors"
+        app:layout_constraintBottom_toBottomOf="@+id/coveredCellTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.87"
+        app:layout_constraintStart_toEndOf="@+id/coveredCellTextView"
+        app:layout_constraintTop_toTopOf="@+id/coveredCellTextView" />
+
+    <TextView
+        android:id="@+id/percentTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="6"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/percentSlider"
+        app:layout_constraintEnd_toEndOf="@id/percentSlider"
+        app:layout_constraintStart_toStartOf="@id/percentSlider" />
+
+    <TextView
+        android:id="@+id/percentTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Mine Percent"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/colTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/colTextView"
+        app:layout_constraintTop_toBottomOf="@+id/colTextView"
+        app:layout_constraintVertical_bias=".04" />
+
+    <SeekBar
+        android:id="@+id/percentSlider"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:max="3"
+        android:min="1"
+        android:progress="1"
+        app:layout_constraintBottom_toBottomOf="@id/percentTextView"
+        app:layout_constraintEnd_toEndOf="@+id/colSlider"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="@+id/colSlider"
+        app:layout_constraintTop_toTopOf="@id/percentTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/settingsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Game\nSettings"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <TextView
+        android:id="@+id/colTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="6"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/colSlider"
+        app:layout_constraintEnd_toEndOf="@id/colSlider"
+        app:layout_constraintStart_toStartOf="@id/colSlider" />
+
+    <TextView
+        android:id="@+id/colTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Columns"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rowTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rowTextView"
+        app:layout_constraintTop_toBottomOf="@+id/rowTextView"
+        app:layout_constraintVertical_bias=".04" />
+
+    <SeekBar
+        android:id="@+id/colSlider"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:min="1"
+        android:progress="2"
+        app:layout_constraintBottom_toBottomOf="@id/colTextView"
+        app:layout_constraintEnd_toEndOf="@+id/rowSlider"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="@+id/rowSlider"
+        app:layout_constraintTop_toTopOf="@id/colTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/rowTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="6"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/rowSlider"
+        app:layout_constraintEnd_toEndOf="@+id/rowSlider"
+        app:layout_constraintStart_toStartOf="@+id/rowSlider" />
+
+    <TextView
+        android:id="@+id/rowTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Rows"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998" />
+
+    <SeekBar
+        android:id="@+id/rowSlider"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:min="1"
+        android:progress="2"
+        app:layout_constraintBottom_toBottomOf="@+id/rowTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rowTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
