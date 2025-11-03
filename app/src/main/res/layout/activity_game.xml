@@ -8,12 +8,92 @@
     android:background="@color/grey"
     tools:context=".Game">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bomb_background"
+        android:text="Return"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cellGrid" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+    <TextView
+        android:id="@+id/remainingMinesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Mines Left"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cellGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/remainingMines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="XX"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cellGrid"
+        app:layout_constraintEnd_toEndOf="@+id/remainingMinesTextView"
+        app:layout_constraintStart_toStartOf="@+id/remainingMinesTextView"
+        app:layout_constraintTop_toBottomOf="@+id/remainingMinesTextView"
+        app:layout_constraintVertical_bias="0.17000002" />
+
+    <TextView
+        android:id="@+id/elapsedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Time Elapsed"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/cellGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26999998" />
+
+    <TextView
+        android:id="@+id/elapsedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="XX:XX"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/cellGrid"
+        app:layout_constraintEnd_toEndOf="@+id/elapsedTextView"
+        app:layout_constraintStart_toStartOf="@+id/elapsedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/elapsedTextView"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <GridView
+        android:id="@+id/cellGrid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnWidth="38dp"
+        android:gravity="center_horizontal"
+        android:numColumns="10"
+        android:verticalSpacing="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/cell" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="cellColors">
+        <item>Grey</item> <!-- Covered Cell -->
+        <item>Green</item> <!-- Uncovered Cell -->
+        <item>Orange</item> <!-- Suspected Mine Cell -->
+        <item>Red</item> <!-- Mine Cell -->
+        <item>Blue</item> <!-- Whatever Cell -->
+    </array>
+</resources>

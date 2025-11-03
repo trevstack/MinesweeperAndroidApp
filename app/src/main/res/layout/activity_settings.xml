@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/percentTextView"
         app:layout_constraintTop_toBottomOf="@id/percentTextView"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.110000014" />
 
     <TextView
         android:id="@+id/revealedCellTextView"
@@ -43,6 +43,7 @@
 
     <Spinner
         android:id="@+id/revealedCellSpinner"
+        style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="175dp"
         android:layout_height="40dp"
         android:entries="@array/cellColors"
@@ -70,6 +71,7 @@
 
     <Spinner
         android:id="@+id/suspectedCellSpinner"
+        style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="175dp"
         android:layout_height="40dp"
         android:entries="@array/cellColors"
@@ -97,6 +99,7 @@
 
     <Spinner
         android:id="@+id/uncoveredCellSpinner"
+        style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="175dp"
         android:layout_height="40dp"
         android:entries="@array/cellColors"
@@ -124,6 +127,7 @@
 
     <Spinner
         android:id="@+id/coveredCellSpinner"
+        style="@android:style/Widget.Spinner.DropDown"
         android:layout_width="175dp"
         android:layout_height="40dp"
         android:entries="@array/cellColors"
@@ -138,7 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/adlam_display"
-        android:text="6"
+        android:text="10%"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -167,8 +171,8 @@
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:max="3"
-        android:min="1"
+        android:max="2"
+        android:min="0"
         android:progress="1"
         app:layout_constraintBottom_toBottomOf="@id/percentTextView"
         app:layout_constraintEnd_toEndOf="@+id/colSlider"
@@ -227,7 +231,7 @@
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:max="5"
-        android:min="1"
+        android:min="0"
         android:progress="2"
         app:layout_constraintBottom_toBottomOf="@id/colTextView"
         app:layout_constraintEnd_toEndOf="@+id/rowSlider"
@@ -271,7 +275,7 @@
         android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:max="5"
-        android:min="1"
+        android:min="0"
         android:progress="2"
         app:layout_constraintBottom_toBottomOf="@+id/rowTextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -280,6 +284,17 @@
         app:layout_constraintTop_toTopOf="@+id/rowTextView"
         app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/bomb_background"
+        android:text="Return"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/revealedCellTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

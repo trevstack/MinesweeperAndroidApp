@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="cellColors">
-        <item>Grey</item> <!-- Covered Cell -->
-        <item>Green</item> <!-- Uncovered Cell -->
-        <item>Orange</item> <!-- Suspected Mine Cell -->
-        <item>Red</item> <!-- Mine Cell -->
-        <item>Blue</item> <!-- Whatever Cell -->
+    <color name="d_covered">#5F5F5F</color>
+    <color name="d_uncovered">#0A9505</color>
+    <color name="d_suspected">#FF5722</color>
+    <color name="d_revealed">#FF0000</color>
+    <color name="d_other">#1025C7</color>
+    <array name="cellColorCodes">
+        <item>@color/d_covered</item> <!-- Covered Cell -->
+        <item>@color/d_uncovered</item> <!-- Uncovered Cell -->
+        <item>@color/d_suspected</item> <!-- Suspected Mine Cell -->
+        <item>@color/d_revealed</item> <!-- Mine Cell -->
+        <item>@color/d_other</item> <!-- Whatever Cell -->
     </array>
 </resources>
