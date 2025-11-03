@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Minesweeper</string>
     <string name="made_by_trevor_carter">Made by: Trevor Carter</string>
+    <string name="instructions">Tap to clear safe squares and use the numbers to find out how many mines are nearby; long-press to flag where you think mines are, but if you tap a mine, you lose! You win when you\'ve revealed all the safe squares on the board.</string>
 </resources>
