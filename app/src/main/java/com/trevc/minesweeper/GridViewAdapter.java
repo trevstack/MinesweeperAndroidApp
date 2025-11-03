@@ -124,14 +124,21 @@ public class GridViewAdapter extends BaseAdapter {
             // Only allow clicking on a hidden, unflagged cell
             if (cellItem.getCellState() == 0) {
                 // UPDATE THE STATE
-                cellItem.setCellState(1);
+
+                Game curGame = (Game) context;
 
                 if (cellItem.getBombCount() == -1) {
+                    cellItem.setCellState(1);
+                    curGame.endGame(false);
+                } else if (cellItem.getBombCount() == 0) {
+                    // hit a '0' cell
 
-                    ((Game) context).endGame(false);
+                    curGame.revealZeroCells(row, col);
+                    curGame.checkWinCondition();
                 } else {
                     // Player hit a safe cell
-                    ((Game) context).checkWinCondition();
+                    cellItem.setCellState(1);
+                    curGame.checkWinCondition();
                 }
 
                 // Refresh grid

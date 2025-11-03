@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -90,6 +91,35 @@ public class Game extends AppCompatActivity {
         endGame(true);
     }
 
+    public void revealZeroCells(int r, int c) {
+        // Base case 1: Check if out of bounds
+        if (r < 0 || r >= rowSize || c < 0 || c >= colSize) {
+            return;
+        }
+
+        Cell cell = cellData.get(r).get(c);
+
+        // Check if already revealed or flagged
+        if (cell.getCellState() != 0) { // 0 is hidden
+            return;
+        }
+
+        // Reveal this cell
+        cell.setCellState(1);
+
+        // If this cell is a '0', recursively call for neighbors
+        if (cell.getBombCount() == 0) {
+            for (int dr = -1; dr <= 1; dr++) {
+                for (int dc = -1; dc <= 1; dc++) {
+                    if (dr == 0 && dc == 0) {
+                        continue;
+                    }
+                    revealZeroCells(r + dr, c + dc);
+                }
+            }
+        }
+    }
+
     public void endGame(boolean didWin) {
         // disable the grid
         cellGrid.setEnabled(false);
@@ -100,6 +130,20 @@ public class Game extends AppCompatActivity {
         } else {
             statusMessage = "You lost... L.";
         }
+
+        // Reveal bombs
+        for (int r = 0; r < rowSize; r++) {
+            for (int c = 0; c < colSize; c++) {
+                Cell currentCell = cellData.get(r).get(c);
+                // Reveal all bombs
+                if (currentCell.getBombCount() == -1) {
+                    currentCell.setCellState(1);
+                }
+            }
+        }
+        // Update grid to show all bombs
+        adapter.notifyDataSetChanged();
+
         Toast.makeText(getApplicationContext(), statusMessage, Toast.LENGTH_SHORT).show();
         cellGrid.postDelayed(new Runnable() {
             @Override
@@ -172,6 +216,12 @@ public class Game extends AppCompatActivity {
     private void createBoard() {
         this.cellData = generateBoard();
         this.adapter = new GridViewAdapter(Game.this, cellData, rowSize, colSize, totalMines, cellColors);
+        int totalWidthInDp = (colSize * 38) + (3 * (colSize - 1));
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) cellGrid.getLayoutParams();
+        float density = getResources().getDisplayMetrics().density;
+        params.width = (int) (totalWidthInDp * density);
+        params.height = params.width;
+        cellGrid.setLayoutParams(params);
         cellGrid.setNumColumns(colSize);
         cellGrid.setAdapter(adapter);
         updateMineCounter(totalMines);

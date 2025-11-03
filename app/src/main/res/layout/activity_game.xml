@@ -44,11 +44,9 @@
         android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/cellGrid"
         app:layout_constraintEnd_toEndOf="@+id/remainingMinesTextView"
         app:layout_constraintStart_toStartOf="@+id/remainingMinesTextView"
-        app:layout_constraintTop_toBottomOf="@+id/remainingMinesTextView"
-        app:layout_constraintVertical_bias="0.17000002" />
+        app:layout_constraintTop_toBottomOf="@+id/remainingMinesTextView" />
 
     <TextView
         android:id="@+id/elapsedTextView"
@@ -85,12 +83,13 @@
 
     <GridView
         android:id="@+id/cellGrid"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:columnWidth="38dp"
-        android:gravity="center_horizontal"
-        android:numColumns="10"
-        android:verticalSpacing="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="416dp"
+        android:columnWidth="38sp"
+        android:horizontalSpacing="3dp"
+        android:numColumns="5"
+        android:stretchMode="none"
+        android:verticalSpacing="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
